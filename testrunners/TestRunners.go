@@ -9,7 +9,6 @@ import (
 import "strings"
 
 type TestRunners struct {
-
 }
 
 func (tRunrs TestRunners) TestExtractDataField001() {
@@ -61,7 +60,7 @@ func (tRunrs TestRunners) TestExtractDataField001() {
 	sMech := strmech.StrMech{}
 
 	datDto,
-	err := sMech.ExtractDataField(
+		err := sMech.ExtractDataField(
 		targetStr,
 		leadingKeyWordDelimiters,
 		startIdx,
@@ -193,9 +192,65 @@ func (tRunrs TestRunners) TestExtractDataField001() {
 		return
 	}
 
-	fmt.Printf("     %s\n" +
-		"     !!! SUCCESSFUL COMPLETION !!!\n" +
-		"Demonstration of StrMech.ExtractDataField()",
+	fmt.Printf("     %s\n"+
+		"     !!! SUCCESSFUL COMPLETION !!!\n"+
+		"Demonstration of StrMech.ExtractDataField()\n\n",
+		ePrefix.String())
+
+}
+
+func (tRunrs TestRunners) TestReplaceRunes002() {
+
+	ePrefix := errpref.ErrPrefixDto{}.NewEPrefCtx(
+		"TestReplaceRunes002()",
+		"")
+
+	testStr := "1a2b3c4d5e6"
+	testRunes := []rune(testStr)
+
+	expected := "1A2B3C4D5E6"
+
+	replaceRunes := make([][2]rune, 5, 10)
+
+	replaceRunes[0][0] = 'a'
+	replaceRunes[0][1] = 'A'
+
+	replaceRunes[1][0] = 'b'
+	replaceRunes[1][1] = 'B'
+
+	replaceRunes[2][0] = 'c'
+	replaceRunes[2][1] = 'C'
+
+	replaceRunes[3][0] = 'd'
+	replaceRunes[3][1] = 'D'
+
+	replaceRunes[4][0] = 'e'
+	replaceRunes[4][1] = 'E'
+
+	sMech := strmech.StrMech{}
+
+	actualRunes, err := sMech.ReplaceRunes(
+		testRunes,
+		replaceRunes,
+		ePrefix)
+
+	if err != nil {
+		fmt.Printf("Error returned by StrMech{}.Ptr().ReplaceRunes(testRunes, replaceRunes). "+
+			"Error='%v' ", err.Error())
+		return
+	}
+
+	actualStr := string(actualRunes)
+
+	if expected != actualStr {
+		fmt.Printf("Error: Expected actual result='%v'. Instead, result='%v'. ",
+			expected, actualStr)
+		return
+	}
+
+	fmt.Printf("     %s\n"+
+		"     !!! SUCCESSFUL COMPLETION !!!\n"+
+		"Demonstration of StrMech.ReplaceRunes()\n\n",
 		ePrefix.String())
 
 }
