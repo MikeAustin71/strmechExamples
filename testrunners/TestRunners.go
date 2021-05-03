@@ -11,6 +11,9 @@ import "strings"
 type TestRunners struct {
 }
 
+// TestExtractDataField001 - Provides an example of
+// StrMech.ExtractDataField().
+//
 func (tRunrs TestRunners) TestExtractDataField001() {
 
 	ePrefix := errpref.ErrPrefixDto{}.NewEPrefCtx(
@@ -199,6 +202,9 @@ func (tRunrs TestRunners) TestExtractDataField001() {
 
 }
 
+// TestReplaceRunes002 - Provides an example of
+// StrMech.ReplaceRunes().
+//
 func (tRunrs TestRunners) TestReplaceRunes002() {
 
 	ePrefix := errpref.ErrPrefixDto{}.NewEPrefCtx(
