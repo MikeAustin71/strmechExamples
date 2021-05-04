@@ -2,8 +2,15 @@ package main
 
 import "github.com/MikeAustin71/strmechExamples/testrunners"
 
+// Two tests are shown here for demonstration purposes.
+// Type MainTest includes another 18-tests which can be
+// invoked directly from main.go
+//
 func main() {
-	TestMain{}.MainTest002()
+
+	tm := TestMain{}
+
+	tm.MainTest002()
 }
 
 type TestMain struct {
@@ -13,7 +20,7 @@ type TestMain struct {
 // StrMech.ExtractDataField()
 //
 func (tMain TestMain) MainTest001() {
-	tRunner := testrunners.TestRunners{}
+	tRunner := testrunners.MainTest{}
 
 	tRunner.TestExtractDataField001()
 
@@ -23,7 +30,7 @@ func (tMain TestMain) MainTest001() {
 // StrMech.ReplaceRunes()
 //
 func (tMain TestMain) MainTest002() {
-	tRunner := testrunners.TestRunners{}
+	tRunner := testrunners.MainTest{}
 
 	tRunner.TestReplaceRunes002()
 
