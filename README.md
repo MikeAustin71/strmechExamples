@@ -9,5 +9,4 @@ go run main.go
 
 This application also provides an example setup and configuration using the ***go.mod*** file to organize dependencies.
 
-
 Good luck and have fun!!
